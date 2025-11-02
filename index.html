@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Joppet — Backend & DevOps Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Portfolio: Backend & DevOps engineering — AWS, Go, SAM, CI/CD, self-hosted homelab." />
+
+  <style>
+    :root{
+      --bg:#0f1724; /* deep slate */
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#6ee7b7; /* mint */
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --max-width:1100px;
+      font-family: 'Inter',system-ui,Arial,Helvetica,sans-serif;
+      color: #e6eef6;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(110,231,183,0.06), transparent),
+                  radial-gradient(900px 400px at 90% 90%, rgba(99,102,241,0.04), transparent),
+                  var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px 18px;
+      display:flex;justify-content:center;
+    }
+
+    .container{width:100%;max-width:var(--max-width)}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;
+    }
+
+    .brand{display:flex;gap:16px;align-items:center}
+    .logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#6366f1);display:grid;place-items:center;font-weight:800;color:#06121a}
+    .brand h1{margin:0;font-size:18px}
+    .brand p{margin:0;color:var(--muted);font-size:13px}
+
+    nav{display:flex;gap:12px;align-items:center}
+    .btn{border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;background:transparent;color:var(--muted);font-weight:600;font-size:13px;cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#a78bfa);color:#041018;border:none}
+
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start;margin-bottom:28px}
+    .card{background:linear-gradient(180deg,var(--glass),var(--glass-2));border-radius:14px;padding:20px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    .intro h2{margin:0 0 6px 0;font-size:22px}
+    .intro p{margin:0;color:var(--muted)}
+
+    .stats{display:flex;gap:12px;margin-top:14px}
+    .stat{background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;min-width:110px}
+    .stat h3{margin:0;font-size:16px}
+    .stat p{margin:6px 0 0 0;color:var(--muted);font-size:13px}
+
+    .sidebar .meta{display:flex;flex-direction:column;gap:12px}
+    .chip{display:inline-flex;gap:8px;align-items:center;padding:8px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:13px}
+
+    /* Projects grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    @media (max-width:980px){.hero{grid-template-columns:1fr} .grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr}}
+
+    .project{padding:16px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.03)}
+    .project h4{margin:0 0 6px 0}
+    .badges{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--muted)}
+
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin:18px 0 8px 0}
+    .section-title h3{margin:0}
+
+    /* Skills */
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:8px}
+
+    /* Case study cards */
+    .case{display:flex;gap:14px;padding:16px;border-radius:12px;align-items:flex-start}
+    .case .left{flex:1}
+    .code{background:rgba(2,6,23,0.6);padding:12px;border-radius:8px;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;font-size:12px;color:#d8eefe}
+
+    footer{margin-top:36px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* tiny interactive touches */
+    .copy{cursor:pointer;border:none;background:transparent;color:var(--muted)}
+    .toggle{display:inline-flex;align-items:center;gap:8px}
+
+    .pill{padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:12px}
+
+    a{color:inherit}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">JE</div>
+        <div>
+          <h1>Joppet — Backend & DevOps Engineer</h1>
+          <p>Serverless, Go, AWS, self-hosted homelab — building reliable systems.</p>
+        </div>
+      </div>
+
+      <nav>
+        <button class="btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Projects</button>
+        <button class="btn" onclick="document.getElementById('case-studies').scrollIntoView({behavior:'smooth'})">Case Studies</button>
+        <a class="btn primary" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="card intro">
+          <h2>Hi — I'm Joppet</h2>
+          <p>Backend & DevOps engineer focusing on AWS serverless architectures, observability, and reliable automation. I work mostly with Go, TypeScript, SAM, and run a self-hosted homelab.</p>
+
+          <div class="stats">
+            <!-- <div class="stat"><h3>10+</h3><p>Production systems</p></div> -->
+            <div class="stat"><h3>AWS First</h3><p>SAM · Lambda</p></div>
+            <div class="stat"><h3>Homelab</h3><p>ZimaOS</p></div>
+          </div>
+
+          <div style="margin-top:16px;display:flex;gap:8px;align-items:center">
+            <a class="btn" href="#projects">View Projects</a>
+            <!-- <a class="btn" href="https://github.com/escotajoppet" target="_blank">GitHub</a> -->
+          </div>
+        </div>
+
+        <aside class="sidebar">
+          <div class="card meta">
+            <div class="chip"><strong>Location</strong><span style="color:var(--muted)">Philippines</span></div>
+            <div class="chip"><strong>Primary</strong><span style="color:var(--muted)">Go, TypeScript, AWS</span></div>
+            <div class="chip"><strong>CI/CD</strong><span style="color:var(--muted)">GitHub Actions</span></div>
+            <div style="margin-top:8px"><span class="pill">Active: SAM · Lambda · Firehose · Athena</span></div>
+            <div style="margin-top:8px"><span class="pill">Inactive: ALB · Beanstalk · Jenkins</span></div>
+          </div>
+
+          <div style="margin-top:12px" class="card">
+            <h4>Contact</h4>
+            <p class="muted">Email: <a href="mailto:escotajoppe@gmail.com">escotajoppe@gmail.com</a></p>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <a class="btn" href="https://www.linkedin.com/in/joppet-escota-b9b9a5117/" target="_blank">LinkedIn</a>
+              <a class="btn" href="mailto:escotajoppe@gmail.com">Email</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="projects">
+        <div class="section-title"><h3>Featured Projects</h3><div class="toggle"><span style="color:var(--muted)">Pinned</span></div></div>
+
+        <div class="grid">
+          <article class="project card">
+            <h4>Expense Tracker (microservices)</h4>
+            <p class="muted">React frontend, Go microservices, SAM, Postgres</p>
+            <div class="badges" style="margin-top:8px">
+              <span class="badge">Go</span>
+              <span class="badge">AWS SAM</span>
+              <span class="badge">Postgres</span>
+              <span class="badge">React</span>
+            </div>
+            <p style="margin-top:12px;color:var(--muted);font-size:13px">One-line description and links to repo + architecture diagram.</p>
+          </article>
+
+          <article class="project card">
+            <h4>Serverless Analytics Pipeline</h4>
+            <p class="muted">Firehose → S3 → Glue → Athena → OpenSearch</p>
+            <div class="badges" style="margin-top:8px">
+              <span class="badge">Firehose</span>
+              <span class="badge">Athena</span>
+              <span class="badge">OpenSearch</span>
+              <span class="badge">Glue</span>
+            </div>
+            <p style="margin-top:12px;color:var(--muted);font-size:13px">ETL and cost-optimization notes included in README.</p>
+          </article>
+
+          <article class="project card">
+            <h4>Self-hosted Homelab — ZimaOS</h4>
+            <p class="muted">Proxmox-like setup, Nextcloud, Immich, monitoring</p>
+            <div class="badges" style="margin-top:8px">
+              <span class="badge">ZimaOS</span>
+              <span class="badge">Docker</span>
+              <span class="badge">Traefik</span>
+            </div>
+            <p style="margin-top:12px;color:var(--muted);font-size:13px">Screenshots and configs in repo.</p>
+          </article>
+
+          <article class="project card">
+            <h4>RBAC via API Key per Client</h4>
+            <p class="muted">API Gateway + Lambda authorizer + DynamoDB</p>
+            <div class="badges" style="margin-top:8px">
+              <span class="badge">API Gateway</span>
+              <span class="badge">Lambda</span>
+              <span class="badge">IAM</span>
+            </div>
+            <p style="margin-top:12px;color:var(--muted);font-size:13px">Design doc + sample authorizer code available.</p>
+          </article>
+
+          <article class="project card">
+            <h4>In-house Analytics & Search</h4>
+            <p class="muted">OpenSearch backed search and dashboards</p>
+            <div class="badges" style="margin-top:8px">
+              <span class="badge">OpenSearch</span>
+              <span class="badge">Node/Go</span>
+            </div>
+            <p style="margin-top:12px;color:var(--muted);font-size:13px">Search algorithm writeup included.</p>
+          </article>
+
+          <article class="project card">
+            <h4>Athena Aggregation Function</h4>
+            <p class="muted">Lambda that triggers Athena jobs, stores results in DynamoDB</p>
+            <div class="badges" style="margin-top:8px">
+              <span class="badge">Athena</span>
+              <span class="badge">Lambda</span>
+            </div>
+            <p style="margin-top:12px;color:var(--muted);font-size:13px">Polling pattern and DynamoDB schema discussed.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="case-studies">
+        <div class="section-title"><h3>Case Studies</h3><a class="btn" href="#notes">Read more</a></div>
+
+        <div class="card case" style="margin-top:8px">
+          <div class="left">
+            <h4>Optimizing Athena costs with partitioning</h4>
+            <p style="color:var(--muted)">Problem: high query cost on raw event data. Solution: partition S3 by date and compact data files. Result: 30% cost reduction.</p>
+            <div style="margin-top:10px"><span class="badge">Athena</span> <span class="badge">Glue</span> <span class="badge">S3</span></div>
+          </div>
+          <!-- <div style="min-width:260px">
+            <div class="code">// example partition expression
+PARTITIONED BY (year INT, month INT, day INT)
+-- use Glue crawler to keep partitions updated
+            </div>
+          </div> -->
+        </div>
+
+        <div class="card case" style="margin-top:12px">
+          <div class="left">
+            <h4>RBAC with per-client API Keys</h4>
+            <p style="color:var(--muted)">Implemented a Lambda authorizer that validates client API keys stored in Secrets Manager and maps them to roles in DynamoDB. This enabled scoped access and simple client onboarding.</p>
+            <div style="margin-top:10px"><span class="badge">API Gateway</span> <span class="badge">Secrets Manager</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="section-title"><h3>Skills & Tools</h3><div style="color:var(--muted)">Active / Inactive</div></div>
+
+        <div class="card" style="padding:16px">
+          <h4>Active</h4>
+          <div class="skills" style="margin-top:8px">
+            <div class="skill">AWS SAM</div>
+            <div class="skill">Lambda</div>
+            <div class="skill">Step Functions</div>
+            <div class="skill">Firehose / Glue / Athena</div>
+            <div class="skill">CloudFront</div>
+            <div class="skill">OpenSearch</div>
+            <div class="skill">Go</div>
+            <div class="skill">TypeScript</div>
+            <div class="skill">GitHub Actions</div>
+            <div class="skill">MermaidJS</div>
+            <div class="skill">Postgres (RDS)</div>
+          </div>
+
+          <h4 style="margin-top:12px">Inactive</h4>
+          <div class="skills" style="margin-top:8px">
+            <div class="skill">ALB / AutoScaling</div>
+            <div class="skill">Beanstalk</div>
+            <div class="skill">Jenkins</div>
+            <div class="skill">Ruby on Rails</div>
+            <div class="skill">MySQL (RDS)</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="notes" style="margin-top:18px">
+        <div class="section-title"><h3>Notes & Posts</h3><a class="btn" href="#blog">More</a></div>
+        <div class="grid" style="margin-top:12px">
+          <article class="project card">
+            <h4>SAM vs Terraform: tradeoffs</h4>
+            <p style="color:var(--muted)">Short writeup of when to choose SAM over Terraform for Lambda-focused projects.</p>
+          </article>
+          <article class="project card">
+            <h4>How I run my homelab</h4>
+            <p style="color:var(--muted)">ZimaOS, Traefik, and backup strategies.</p>
+          </article>
+          <article class="project card">
+            <h4>One-line search algorithm</h4>
+            <p style="color:var(--muted)">Problem, approach and benchmarks.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:22px">
+        <div class="section-title"><h3>Contact & Next Steps</h3></div>
+        <div class="card" style="display:flex;gap:12px;align-items:center">
+          <div style="flex:1">
+            <p style="margin:0;color:var(--muted)">Interested in hiring or collaborating? I usually respond within a day. Share a short description of the role or project and links to relevant repos.</p>
+          </div>
+          <div style="min-width:220px;display:flex;gap:8px">
+            <a class="btn primary" href="mailto:escotajoppet@gmail.com">Email me</a>
+            <!-- <a class="btn" href="https://github.com/escotajoppet" target="_blank">GitHub</a> -->
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        Built with ❤️ • Designed for backend & DevOps roles — update this template with your repos & metrics.
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // small helpers - replace placeholders with real links if present
+    (function(){
+      // keyboard shortcut: press 'g' then 'p' to go to projects
+      let buffer='';
+      window.addEventListener('keydown', e=>{
+        buffer += e.key;
+        if(buffer.endsWith('gp')){document.getElementById('projects').scrollIntoView({behavior:'smooth'});buffer=''}
+        if(buffer.length>3) buffer=buffer.slice(-3);
+      });
+    })();
+  </script>
+
+  <!-- Mermaid support (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>if(window.mermaid) mermaid.initialize({startOnLoad:false});</script>
+</body>
+</html>
