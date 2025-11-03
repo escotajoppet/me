@@ -102,6 +102,19 @@
       margin-bottom: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
+
+    .resume-btn {
+      background-color: #6366f1;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background-color 0.2s ease;
+    }
+    .resume-btn:hover {
+      background-color: #4f46e5;
+    }
   </style>
 </head>
 <body>
@@ -126,7 +139,10 @@
     <main>
       <section class="hero">
         <div class="card intro">
-          <h2>Hi, I'm Joppet</h2>
+          <div style="display: flex; margin-bottom: 5px;">
+            <h2 style="flex: 1;">Hi, I'm Joppet</h2>
+            <a href="assets/resume.pdf" download class="btn primary" style="text-decoration: none;">Download Résumé</a>
+          </div>
           <p>
             Backend & DevOps engineer specializing in AWS serverless architectures, automation, and observability.
           </p>
@@ -188,7 +204,7 @@
               <span class="badge">Tailscale</span>
             </div>
             <p style="margin-top:12px;color:var(--muted);font-size:13px">A full-stack calendar form expense tracker powered by Go and React, backed by DynamoDB, and privately deployed on my self-hosted homelab. Accessible only through my Tailnet for secure, VPN-based access.</p>
-            <img src="assets/expensetracker.png" alt="Expense Tracker Architecture Diagram" class="project-image" />
+            <!-- <img src="assets/expensetracker.png" alt="Expense Tracker Architecture Diagram" class="project-image" /> -->
           </article>
 
           <article class="project card">
@@ -204,7 +220,7 @@
               <span class="badge">Go</span>
             </div>
             <p style="margin-top:12px;color:var(--muted);font-size:13px">A serverless analytics architecture built with AWS Lambda, Step Functions, and Firehose. Seamlessly transforming and analyzing event data through S3, and Glue powering low-latency access to aggregated insights.</p>
-            <img src="assets/gnosis.png" alt="Analytics Architecture Diagram" class="project-image" />
+            <!-- <img src="assets/gnosis.png" alt="Analytics Architecture Diagram" class="project-image" /> -->
           </article>
 
           <article class="project card">
@@ -218,7 +234,7 @@
               <span class="badge">Typescript</span>
             </div>
             <p style="margin-top:12px;color:var(--muted);font-size:13px">A secure API Gateway setup with custom Lambda authorizers providing role-based access per client using unique API keys — all managed through AWS SAM for scalable, infrastructure-as-code deployment.</p>
-            <img src="assets/rbac.png" alt="RBAC Sequence Diagram" class="project-image" />
+            <!-- <img src="assets/rbac.png" alt="RBAC Sequence Diagram" class="project-image" /> -->
           </article>
 
           <article class="project card">
@@ -232,7 +248,7 @@
               <span class="badge">Go</span>
             </div>
             <p style="margin-top:12px;color:var(--muted);font-size:13px">A fully automated analytics function that runs Athena queries on scheduled intervals via EventBridge, aggregates results, and stores them in DynamoDB. All serverless, scalable, and cost-efficient.</p>
-            <img src="assets/athenaaggregator.png" alt="Athena Aggregator Sequence Diagram" class="project-image" />
+            <!-- <img src="assets/athenaaggregator.png" alt="Athena Aggregator Sequence Diagram" class="project-image" /> -->
           </article>
 
           <article class="project card">
