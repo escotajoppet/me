@@ -6,8 +6,8 @@
   <title>Joppet — Backend & DevOps Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <meta name="description" content="Portfolio: Backend & DevOps engineering — AWS, Go, SAM, CI/CD, self-hosted homelab." />
+  <meta name="description" content="Joppet Escota — Backend & DevOps Engineer specializing in AWS serverless systems, Go, and TypeScript. Experienced in analytics pipelines, CI/CD automation, and self-hosted infrastructures." />
 
   <style>
     :root{
@@ -96,6 +96,12 @@
     a{color:inherit}
 
     footer{padding-bottom: 10px;}
+    .project-image {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
@@ -104,8 +110,8 @@
       <div class="brand">
         <div class="logo">JE</div>
         <div>
-          <h1>Joppet — Backend & DevOps Engineer</h1>
-          <p>Serverless, Go, AWS, self-hosted homelab — building reliable systems.</p>
+          <h1>Joppet Escota - Backend & DevOps Engineer</h1>
+          <p>Building reliable, serverless systems on AWS using Go, TypeScript, and modern DevOps practices.</p>
         </div>
       </div>
 
@@ -121,15 +127,23 @@
       <section class="hero">
         <div class="card intro">
           <h2>Hi, I'm Joppet</h2>
-          <p>Backend & DevOps engineer focusing on AWS serverless architectures, observability, and reliable automation. I work mostly with Go, TypeScript, SAM, and run a self-hosted homelab.</p>
+          <p>
+            Backend & DevOps engineer specializing in AWS serverless architectures, automation, and observability.
+          </p>
+          <p>
+            I design and build end-to-end systems using Go and TypeScript — from event pipelines and analytics to CI/CD and self-hosted environments.
+          </p>
+          <p>
+            Passionate about simplifying operations and turning complex workflows into scalable, maintainable solutions.
+          </p>
 
           <div class="stats">
             <div class="stat"><h3>15+</h3><p>AWS Services Deployed</p></div>
-            <div class="stat"><h3>20+</h3><p>Serverless Pipelines</p></div>
-            <div class="stat"><h3>3+</h3><p>Full CI/CD Pipelines Implemented</p></div>
-            <div class="stat"><h3>2</h3><p>Major Systems Migration</p></div>
-            <div class="stat"><h3>100%</h3><p>Infra as Code (IaC)</p></div>
-            <div class="stat"><h3>4+</h3><p>Self-hosted Apps</p></div>
+            <div class="stat"><h3>20+</h3><p>Serverless Workflows Built</p></div>
+            <div class="stat"><h3>5+</h3><p>Production CI/CD Pipelines</p></div>
+            <div class="stat"><h3>2</h3><p>Major System Migrations</p></div>
+            <div class="stat"><h3>100%</h3><p>Infrastructure as Code (IaC)</p></div>
+            <div class="stat"><h3>4+</h3><p>Self-hosted Apps Deployed</p></div>
           </div>
 
           <!-- <div style="margin-top:16px;display:flex;gap:8px;align-items:center">
@@ -174,6 +188,7 @@
               <span class="badge">Tailscale</span>
             </div>
             <p style="margin-top:12px;color:var(--muted);font-size:13px">A full-stack calendar form expense tracker powered by Go and React, backed by DynamoDB, and privately deployed on my self-hosted homelab. Accessible only through my Tailnet for secure, VPN-based access.</p>
+            <img src="assets/expensetracker.png" alt="Expense Tracker Architecture Diagram" class="project-image" />
           </article>
 
           <article class="project card">
@@ -189,6 +204,7 @@
               <span class="badge">Go</span>
             </div>
             <p style="margin-top:12px;color:var(--muted);font-size:13px">A serverless analytics architecture built with AWS Lambda, Step Functions, and Firehose. Seamlessly transforming and analyzing event data through S3, and Glue powering low-latency access to aggregated insights.</p>
+            <img src="assets/gnosis.png" alt="Analytics Architecture Diagram" class="project-image" />
           </article>
 
           <article class="project card">
@@ -202,6 +218,7 @@
               <span class="badge">Typescript</span>
             </div>
             <p style="margin-top:12px;color:var(--muted);font-size:13px">A secure API Gateway setup with custom Lambda authorizers providing role-based access per client using unique API keys — all managed through AWS SAM for scalable, infrastructure-as-code deployment.</p>
+            <img src="assets/rbac.png" alt="RBAC Sequence Diagram" class="project-image" />
           </article>
 
           <article class="project card">
@@ -215,6 +232,7 @@
               <span class="badge">Go</span>
             </div>
             <p style="margin-top:12px;color:var(--muted);font-size:13px">A fully automated analytics function that runs Athena queries on scheduled intervals via EventBridge, aggregates results, and stores them in DynamoDB. All serverless, scalable, and cost-efficient.</p>
+            <img src="assets/athenaaggregator.png" alt="Athena Aggregator Sequence Diagram" class="project-image" />
           </article>
 
           <article class="project card">
@@ -252,15 +270,18 @@
             <p style="color:var(--muted)">
               <strong>Problem:</strong>
               As the product scaled, enabling or disabling experimental features across mobile and web clients required code redeployments.
-              <br />
+            </p>
+            <p style="color:var(--muted)">
               This slowed down release velocity and increased the risk of introducing regressions when toggling new features.
             </p>
             <p style="color:var(--muted)">
               <strong>Solution:</strong>
               Designed and implemented a centralized feature flag management system powered by AWS AppConfig, allowing controlled feature rollouts using a JSON configuration file.
-              <br />
+            </p>
+            <p style="color:var(--muted)">
               The backend (Go microservices) retrieves the latest AppConfig configurations via the AWS SDK and caches them in memory for fast evaluation.
-              <br />
+            </p>
+            <p style="color:var(--muted)">
               Frontend (React) and mobile clients consume the same configuration from an exposed API endpoint, ensuring synchronized feature behavior across platforms — without redeployments.
             </p>
             <div style="margin-top:10px">
@@ -279,17 +300,21 @@
             <p style="color:var(--muted)">
               <strong>Problem:</strong>
               As the number of client integrations increased, access control became difficult to manage and audit.
-              <br />
+            </p>
+            <p style="color:var(--muted)">
               The existing authentication layer used static shared tokens, which lacked fine-grained permissions, revocation control, and per-client monitoring.
-              <br />
+            </p>
+            <p style="color:var(--muted)">
               This made it challenging to enforce secure, scalable access across multiple APIs.
             </p>
             <p style="color:var(--muted)">
               <strong>Solution:</strong>
               Designed and implemented a role-based access control (RBAC) system powered by API Gateway and custom Lambda authorizers, fully managed through AWS SAM.
-              <br />
+            </p>
+            <p style="color:var(--muted)">
               Each client is issued a unique API key linked to specific roles and permissions.
-              <br />
+            </p>
+            <p style="color:var(--muted)">
               When a request is made, the Lambda authorizer validates the API key, looks up the associated permissions, and injects authorization context into the request before it reaches the backend services.
             </p>
             <div style="margin-top:10px">
@@ -309,30 +334,38 @@
         <div class="section-title"><h3>Skills & Tools</h3><div style="color:var(--muted)">Active / Inactive</div></div>
 
         <div class="card" style="padding:16px">
-          <h4>Active</h4>
-          <div class="skills" style="margin-top:8px">
+          <h4>Backend & DevOps</h4>
+          <div class="skills">
             <div class="skill">Go</div>
-            <div class="skill">TypeScript</div>
-            <div class="skill">Amazon Web Services (AWS)</div>
-            <div class="skill">(RDS) Postgres</div>
-            <div class="skill">(NoSQL) Opensearch, DynamoDB, MongoDB</div>
-            <div class="skill">Lambda</div>
-            <div class="skill">Step Functions</div>
+            <div class="skill">TypeScript / Node.js</div>
+            <div class="skill">AWS SAM</div>
+            <div class="skill">Lambda / Step Functions</div>
             <div class="skill">Firehose / Glue / Athena</div>
-            <div class="skill">CloudFront</div>
-            <div class="skill">OpenSearch</div>
-            <div class="skill">GitHub Actions</div>
-            <div class="skill">MermaidJS</div>
-            <div class="skill">Messages integration (Slack, Telegram, Whatsapp, Discord)</div>
+            <div class="skill">API Gateway / CloudFront</div>
+            <div class="skill">CI/CD (GitHub Actions)</div>
+            <div class="skill">Observability (CloudWatch)</div>
           </div>
 
-          <h4 style="margin-top:12px">Inactive</h4>
-          <div class="skills" style="margin-top:8px">
-            <div class="skill">ALB / AutoScaling</div>
-            <div class="skill">Beanstalk</div>
-            <div class="skill">Jenkins</div>
-            <div class="skill">Ruby on Rails</div>
-            <div class="skill">MySQL (RDS)</div>
+          <h4 style="margin-top:12px">Frontend Development</h4>
+          <div class="skills">
+            <div class="skill">React</div>
+            <div class="skill">TypeScript</div>
+            <div class="skill">HTML / CSS</div>
+          </div>
+
+          <h4 style="margin-top:12px">Data & Storage</h4>
+          <div class="skills">
+            <div class="skill">PostgreSQL</div>
+            <div class="skill">OpenSearch</div>
+            <div class="skill">DynamoDB</div>
+            <div class="skill">MongoDB</div>
+          </div>
+
+          <h4 style="margin-top:12px">Others</h4>
+          <div class="skills">
+            <div class="skill">MermaidJS (Architecture Docs)</div>
+            <div class="skill">Self-hosting / Homelab (Proxmox, ZimaOS)</div>
+            <div class="skill">Message Integrations (Slack, Telegram, Discord)</div>
           </div>
         </div>
       </section>
@@ -350,7 +383,11 @@
       </section>
 
       <footer>
-        <p>© <span id="year"></span> Joppet Escota. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Joppet Escota. All rights reserved.</p>
+        <p>
+          <a href="mailto:escotajoppet@gmail.com">escotajoppet@gmail.com</a> |
+          <a href="tel:+639959627868">+63 995 962 7868</a>
+        </p>
       </footer>
     </main>
   </div>
